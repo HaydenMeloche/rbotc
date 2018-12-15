@@ -25,6 +25,7 @@ describe('My Probot app', () => {
     // Passes the mocked out GitHub API into out app instance
     app.auth = () => Promise.resolve(github)
   })
+})
 
 /*  test('creates a comment when an issue is opened', async () => {
     // Simulates delivery of an issues.opened webhook
@@ -37,4 +38,3 @@ describe('My Probot app', () => {
     expect(github.issues.createComment).toHaveBeenCalled()
   })
 }) */
-
