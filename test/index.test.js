@@ -1,8 +1,9 @@
 const { Application } = require('probot')
 // Requiring our app implementation
-const myProbotApp = require('..')
+const myProbotApp = require('../src').default
 
-const issuesOpenedPayload = require('./fixtures/issues.opened.json')
+// const issuesOpenedPayload = require('./fixtures/issues.opened.json')
+// const simplePullRequestOpened = require('./fixtures/simple.pullrequest.opened')
 
 test('that we can run tests', () => {
   // your real tests go here
@@ -25,16 +26,15 @@ describe('My Probot app', () => {
     // Passes the mocked out GitHub API into out app instance
     app.auth = () => Promise.resolve(github)
   })
-})
 
-/*  test('creates a comment when an issue is opened', async () => {
-    // Simulates delivery of an issues.opened webhook
+  /*
+  test('fetch files when an pull request is opened', async () => {
     await app.receive({
-      name: 'issues.opened',
-      payload: issuesOpenedPayload
+      name: 'pull_request.opened',
+      payload: simplePullRequestOpened
     })
 
-    // This test passes if the code in your index.js file calls `context.github.issues.createComment`
-    expect(github.issues.createComment).toHaveBeenCalled()
+    expect(github.pullRequests.listFiles).toHaveBeenCalled()
   })
-}) */
+  */
+})
